@@ -47,7 +47,7 @@ export default function LotteryTicket() {
         <div className="text-sm text-gray-600 pl-6">
           <ul className="list-disc space-y-1">
             <li>Only individuals who do not own a home anywhere are eligible.</li>
-            <li>Only individuals with an annual income below ₹8 lakhs are eligible.</li>
+            <li>Only individuals with an annual income below &#8377;8 lakhs are eligible.</li>
             <li>Ticket holders can withdraw their ticket at any time before the lottery draw and will receive a full refund of their registration fee.</li>
             <li>After the draw, no withdrawals or refunds will be possible.</li>
           </ul>
@@ -61,7 +61,7 @@ export default function LotteryTicket() {
             className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
           />
           <label htmlFor="noHouse" className="text-sm text-gray-700">
-            I don't have a house anywhere in my name
+            I don&apos;t have a house anywhere in my name
           </label>
         </div>
         <div className="flex items-center space-x-2">
@@ -73,7 +73,7 @@ export default function LotteryTicket() {
             className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
           />
           <label htmlFor="agreeTerms" className="text-sm text-gray-700">
-            I agree to the following terms and conditions:
+            I agree to the following terms and conditions&#58;
           </label>
         </div>
 

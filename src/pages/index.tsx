@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
             <div className="max-w-xs text-center shadow-lg p-9">
               <PiGiftLight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
               <h3 className="text-2xl font-semibold mt-4">Step 3</h3>
-              <p className="mt-2">Wait for the draw and check if you're a winner!</p>
+              <p className="mt-2">Wait for the draw and check if you&apos;re a winner&#x21;</p>
             </div>
           </div>
         </section>
@@ -73,7 +73,7 @@ const HomePage: React.FC = () => {
         {/* Prizes Section */}
         <section className="bg-gray-100 py-16">
           <h2 className="text-3xl font-bold text-center">Prizes You Could Win</h2>
-          <p className="text-center mt-4 text-gray-600">Check out our exclusive prizes!</p>
+          <p className="text-center mt-4 text-gray-600">Check out our exclusive prizes&#x21;</p>
           <div className="container mx-auto flex flex-col md:flex-row justify-center items-center md:justify-around mt-8 gap-9">
             <div className="max-w-xs text-center shadow-lg p-9">
               <RxHome className="mx-auto h-16 w-16 text-[#2cb7f0]" />
@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
             <div className="max-w-xs text-center shadow-lg p-9">
               <FiDollarSign className="mx-auto h-16 w-16 text-[#2cb7f0]" />
               <h3 className="text-2xl font-semibold mt-4">Cash Prizes</h3>
-              <p className="mt-2">Win life-changing amounts of money.</p>
+              <p className="mt-2">Win life&#8208;changing amounts of money.</p>
             </div>
           </div>
         </section>
@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
           <h2 className="text-3xl font-bold">Ready to Try Your Luck?</h2>
           <p className="mt-4 text-lg">Sign up today and secure your chance to win amazing prizes.</p>
           <button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f]  flex items-center mx-auto">
-            Sign Up & Get Started <FiArrowRight className="ml-2 h-5 w-5" />
+            Sign Up &#38; Get Started <FiArrowRight className="ml-2 h-5 w-5" />
           </button>
         </section>
       </div>

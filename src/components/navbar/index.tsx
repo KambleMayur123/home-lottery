@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Logo from '../../../public/assets/logo.png';
+import Link from "next/link";
 
 const Component: React.FC = () => {
 
@@ -35,16 +36,16 @@ const Component: React.FC = () => {
       <div className=" mx-auto pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0 w-[100%]">
+            <Link href="/" className="flex-shrink-0 w-[100%]">
               <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[45%]' />
-            </a>
+            </Link>
           </div>
           <div className="hidden md:block w-full">
             <div className="ml-10 flex items-center justify-end space-x-4">
-              <a href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Claim Prize Money</a>
+              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Claim Prize Money</Link>
+              <Link href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</Link>
               <div id="google_translate_element"></div>
             </div>
           </div>
