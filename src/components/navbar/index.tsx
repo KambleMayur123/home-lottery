@@ -31,16 +31,16 @@ const Component: React.FC = () => {
   }, []);
 
   return (
-    <nav className="text-primary-foreground fixed top-0 w-full z-50 backdrop-blur-md bg-white/30 border-b-slate-300 border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-2">
+    <nav className="lg:pl-10 lg:pr-10 text-primary-foreground fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 border-b-slate-300 border-b">
+      <div className=" mx-auto pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0">
-              <Image src={Logo} alt="Logo" className='h-auto w-2/5' />
+            <a href="#" className="flex-shrink-0 w-[100%]">
+              <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[45%]' />
             </a>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:block w-full">
+            <div className="ml-10 flex items-center justify-end space-x-4">
               <a href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</a>
               <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</a>
               <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</a>

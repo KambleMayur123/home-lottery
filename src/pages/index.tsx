@@ -5,7 +5,7 @@ import { FiArrowRight, FiDollarSign } from "react-icons/fi";
 import { PiGiftLight, PiCarLight } from "react-icons/pi";
 import { RxHome } from "react-icons/rx";
 import Link from "next/link";
-
+import Button from '../components/ui/button/index'
 
 const HomePage: React.FC = () => {
   return (
@@ -24,14 +24,21 @@ const HomePage: React.FC = () => {
           {/* Black overlay with 30% opacity */}
           <div className="absolute inset-0 bg-black opacity-30"></div>
 
-          <div className="relative z-10 top-[40%]">
+          <div className="relative z-10 top-[40%] flex flex-col justify-center items-center">
             <h1 className="text-4xl md:text-5xl lg:text-8xl font-bold">Welcome to Lucky Draw</h1>
             <p className="mt-4 text-lg md:text-xl">
               Your chance to win big and change your life! Participate in our exclusive lottery for amazing prizes.
             </p>
-            <Link href={"/ticket"} className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto">
-              Get Your Ticket Now <FiArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+
+
+
+            <Button className='mt-4 bg-[#f7b245] lg:w-[20%] w-[85%] hover:bg-[#fec05d]'>
+              <Link href="/ticket" className='flex justify-center items-center'>
+                  Get Your Ticket Now <FiArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+
+
           </div>
         </section>
 

@@ -1,0 +1,15 @@
+.button-reveal {
+  transition: clip-path;
+  transition-duration: .2s;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+     -moz-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+       -o-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.button:hover:not(:disabled) .button-reveal {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+     -moz-clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+       -o-clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}

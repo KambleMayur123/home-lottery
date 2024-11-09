@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Navbar from '../../components/navbar/index'
 import Footer from '../../components/footer/index'
+
+import Button from '../../components/ui/button/index'
 export default function LotteryTicket() {
   const [name, setName] = useState('')
   const [income, setIncome] = useState('')
@@ -15,7 +17,7 @@ export default function LotteryTicket() {
 
   return (<>
 
-  <Navbar/>
+    <Navbar />
     <div className="max-w-md mx-auto mt-[90px] mb-[30px] p-6 bg-white rounded-lg shadow-xl">
       <h2 className="text-xl font-semibold mb-2">Conditions for Participation</h2>
 
@@ -75,15 +77,15 @@ export default function LotteryTicket() {
           </label>
         </div>
 
-        <button
+        <Button
           type="submit"
-          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#f7b245] hover:bg-[#fec05d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f7b245]"
         >
-          तिकीट खरेदी करा
-        </button>
+          Buy a ticket
+        </Button>
       </form>
     </div>
-    <Footer/>
+    <Footer />
   </>
 
   )
