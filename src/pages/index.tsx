@@ -4,9 +4,10 @@ import Heroimg from '../../public/assets/hero.jpg'
 import { FiArrowRight, FiDollarSign } from "react-icons/fi";
 import { PiGiftLight, PiCarLight } from "react-icons/pi";
 import { RxHome } from "react-icons/rx";
+import Link from "next/link";
 
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <Layout>
       {/* Hero Section */}
@@ -28,9 +29,9 @@ const HomePage = () => {
             <p className="mt-4 text-lg md:text-xl">
               Your chance to win big and change your life! Participate in our exclusive lottery for amazing prizes.
             </p>
-            <button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto">
+            <Link href={"/ticket"} className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto">
               Get Your Ticket Now <FiArrowRight className="ml-2 h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </section>
 

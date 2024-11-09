@@ -1,6 +1,7 @@
-export default function Footer() {
+  const Footer: React.FC = () => {
+
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground border-b-slate-300 border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8 md:flex md:items-center md:justify-between">
           <div className="flex justify-center space-x-6 md:order-2">
@@ -42,3 +43,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer;

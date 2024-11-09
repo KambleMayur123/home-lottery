@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Logo from '../../../public/assets/logo.png';
-export default function Component() {
+
+const Component: React.FC = () => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -29,7 +31,7 @@ export default function Component() {
   }, []);
 
   return (
-    <nav className="text-primary-foreground fixed top-0 w-full z-50 bg-white">
+    <nav className="text-primary-foreground fixed top-0 w-full z-50 backdrop-blur-md bg-white/30 border-b-slate-300 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -39,7 +41,7 @@ export default function Component() {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</a>
+              <a href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</a>
               <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</a>
               <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</a>
               <a href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Claim Prize Money</a>
@@ -81,3 +83,4 @@ export default function Component() {
     </nav>
   )
 }
+export default Component;
