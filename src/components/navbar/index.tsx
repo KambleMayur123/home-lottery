@@ -35,7 +35,7 @@ const Component: React.FC = () => {
       <div className=" mx-auto pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0 w-[100%]">
+            <a href="/" className="flex-shrink-0 w-[100%]">
               <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[45%]' />
             </a>
           </div>
