@@ -44,25 +44,25 @@ const HomePage: React.FC = () => {
 
 
         {/* How It Works Section */}
-        <section className="container mx-auto py-12 text-center">
+        <section className="bg-[#f1f5fa] container mx-auto py-12 text-center">
           <h2 className="text-3xl font-bold">How It Works</h2>
           <p className="mt-4 text-gray-700">
             Follow these simple steps to participate in our lottery.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center md:justify-around mt-8 gap-9">
 
-            <div className="max-w-xs text-center shadow-lg p-9">
+            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-[0_2px_16px_#19283917] p-9">
               <PiGiftLight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
               <h3 className="text-2xl font-semibold mt-4">Step 1</h3>
               <p className="mt-2">Choose your lucky numbers or opt for a quick pick.</p>
             </div>
 
-            <div className="max-w-xs text-center shadow-lg p-9">
+            <div className=" bg-[white] rounded-lg shadow-[0_2px_16px_#19283917] max-w-xs text-center shadow-lg p-9">
               <FiArrowRight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
               <h3 className="text-2xl font-semibold mt-4">Step 2</h3>
               <p className="mt-2">Purchase your lottery ticket online securely.</p>
             </div>
-            <div className="max-w-xs text-center shadow-lg p-9">
+            <div className=" bg-[white] rounded-lg shadow-[0_2px_16px_#19283917] max-w-xs text-center shadow-lg p-9">
               <PiGiftLight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
               <h3 className="text-2xl font-semibold mt-4">Step 3</h3>
               <p className="mt-2">Wait for the draw and check if you&apos;re a winner&#x21;</p>
@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Prizes Section */}
-        <section className="bg-gray-100 py-16">
+        <section className="bg-[white] py-16">
           <h2 className="text-3xl font-bold text-center">Prizes You Could Win</h2>
           <p className="text-center mt-4 text-gray-600">Check out our exclusive prizes&#x21;</p>
           <div className="container mx-auto flex flex-col md:flex-row justify-center items-center md:justify-around mt-8 gap-9">
