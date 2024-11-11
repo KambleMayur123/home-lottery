@@ -1,19 +1,34 @@
 import { useState } from 'react'
 import Navbar from '../../components/navbar/index'
 import Footer from '../../components/footer/index'
+import Modal from '../../components/ui/modal/modal'; 
 
 import Button from '../../components/ui/button/index'
 export default function LotteryTicket() {
-  const [name, setName] = useState('')
-  const [income, setIncome] = useState('')
-  const [noHouse, setNoHouse] = useState(false)
-  const [agreeTerms, setAgreeTerms] = useState(false)
+  const [name, setName] = useState('');
+  const [income, setIncome] = useState('');
+  const [noHouse, setNoHouse] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
+  const [error, setError] = useState<string>(''); // State for error message
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
+    
+    // Check if income is greater than or equal to 800000
+    if (parseInt(income) >= 800000) {
+      setError("You can't apply because your annual income must be less than ₹8,00,000.");
+      setShowModal(true); // Show modal if income condition is not met
+      return; // Prevent form submission
+    }
+
+    // Reset error if the form is valid
+    setError('');
+    setShowModal(false); // Close modal if form is valid
+
     // Handle form submission logic here
-    console.log('Form submitted:', { name, income, noHouse, agreeTerms })
-  }
+    console.log('Form submitted:', { name, income, noHouse, agreeTerms });
+  };
 
   return (<>
 
@@ -22,68 +37,73 @@ export default function LotteryTicket() {
       <h2 className="text-xl font-semibold mb-2">Conditions for Participation</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="p-[5px] mt-1 block w-full rounded-md border-2 border-lightgray shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </div>
-        <div>
-          <label htmlFor="income" className="block text-sm font-medium text-gray-700">Annual Income (Rs.)</label>
-          <input
-            type="number"
-            id="income"
-            value={income}
-            onChange={(e) => setIncome(e.target.value)}
-            required
-            className="p-[5px] mt-1 block w-full rounded-md border-2 border-lightgray shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </div>
-        <div className="text-sm text-gray-600 pl-6">
-          <ul className="list-disc space-y-1">
-            <li>Only individuals who do not own a home anywhere are eligible.</li>
-            <li>Only individuals with an annual income below ₹8 lakhs are eligible.</li>
-            <li>Ticket holders can withdraw their ticket at any time before the lottery draw and will receive a full refund of their registration fee.</li>
-            <li>After the draw, no withdrawals or refunds will be possible.</li>
-          </ul>
-        </div>
-        <div className="flex items-center space-x-2">
-          <input
-            type="checkbox"
-            id="noHouse"
-            checked={noHouse}
-            onChange={(e) => setNoHouse(e.target.checked)}
-            className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-          <label htmlFor="noHouse" className="text-sm text-gray-700">
-            I don't have a house anywhere in my name
-          </label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <input
-            type="checkbox"
-            id="agreeTerms"
-            checked={agreeTerms}
-            onChange={(e) => setAgreeTerms(e.target.checked)}
-            className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-          <label htmlFor="agreeTerms" className="text-sm text-gray-700">
-            I agree to the following terms and conditions:
-          </label>
-        </div>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="p-[5px] mt-1 block w-full rounded-md border-2 border-lightgray shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        />
+      </div>
+      <div>
+        <label htmlFor="income" className="block text-sm font-medium text-gray-700">Annual Income (Rs.)</label>
+        <input
+          type="number"
+          id="income"
+          value={income}
+          onChange={(e) => setIncome(e.target.value)}
+          required
+          className="p-[5px] mt-1 block w-full rounded-md border-2 border-lightgray shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        />
+      </div>
 
-        <Button
-          type="submit"
-          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#f7b245] hover:bg-[#fec05d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f7b245]"
-        >
-          Buy a ticket
-        </Button>
-      </form>
+      <div className="text-sm text-gray-600 pl-6">
+        <ul className="list-disc space-y-1">
+          <li>Only individuals who do not own a home anywhere are eligible.</li>
+          <li>Only individuals with an annual income below &#8377;8 lakhs are eligible.</li>
+          <li>Ticket holders can withdraw their ticket at any time before the lottery draw and will receive a full refund of their registration fee.</li>
+          <li>After the draw, no withdrawals or refunds will be possible.</li>
+        </ul>
+      </div>
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          id="noHouse"
+          checked={noHouse}
+          onChange={(e) => setNoHouse(e.target.checked)}
+          className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+        />
+        <label htmlFor="noHouse" className="text-sm text-gray-700">
+          I don&apos;t have a house anywhere in my name
+        </label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          id="agreeTerms"
+          checked={agreeTerms}
+          onChange={(e) => setAgreeTerms(e.target.checked)}
+          className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+        />
+        <label htmlFor="agreeTerms" className="text-sm text-gray-700">
+          I agree to the following terms and conditions&#58;
+        </label>
+      </div>
+
+      <Button
+        type="submit"
+        style={{backgroundColor:"red !important"}}
+        className="w-full py-2 px-4 border border-transparent rounded-[5px] shadow-sm text-sm font-medium text-white bg-[#f7b245] hover:bg-[#fec05d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f7b245]"
+      >
+        Buy a ticket
+      </Button>
+
+      {/* Show modal if showModal is true */}
+      {showModal && <Modal message={error} onClose={() => setShowModal(false)} />}
+    </form>
     </div>
     <Footer />
   </>
