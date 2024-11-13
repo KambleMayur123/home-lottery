@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Logo from '../../../public/assets/logo.png';
 import Link from "next/link";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 const Component: React.FC = () => {
 
@@ -44,10 +46,12 @@ const Component: React.FC = () => {
           </div>
           <div className="hidden md:block w-full">
             <div className="ml-10 flex items-center justify-end space-x-4">
-              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Claim Prize Money</Link>
-              <Link href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</Link>
+              <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
+              <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Claim Prize Money</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap "><FaCartShopping/></Link>
+
               <div id="google_translate_element"></div>
             </div>
           </div>
@@ -71,16 +75,16 @@ const Component: React.FC = () => {
         </div>
       </div>
 
-      <div 
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-60' : 'max-h-0'
-        }`}
+      <div
+        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${isMenuOpen ? 'max-h-60' : 'max-h-0'
+          }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Home</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Lottery Result</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Purchase Lottery Tickets</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200">Claim Prize Money</a>
+          <Link href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
+          <Link href="/ticket" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
+          <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
+          <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Claim Prize Money</Link>
+          <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap "><FaCartShopping/></Link>
         </div>
       </div>
     </nav>

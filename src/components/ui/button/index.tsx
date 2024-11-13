@@ -11,11 +11,10 @@ const common = [
   "flex",
   "justify-center",
   "items-center",
-  "rounded-full",
+  "rounded-lg",
   "py-2",
   "px-8",
   "cursor-pointer",
-  "uppercase",
   "font-medium",
   "disabled:cursor-not-allowed",
   "w-full"
@@ -31,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({ className = "", loading = false, childr
               styles["button-reveal"],
               common,
               "absolute top-0 left-0 w-full h-full",
-              "text-black stroke-black bg-white border-black",
+              "text-white stroke-black bg-[#ED702E] border-black",
             ].join(" ")}
           >
             {children}
