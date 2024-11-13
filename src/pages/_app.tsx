@@ -1,8 +1,12 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { CartProvider } from '../contxt/index'; // import CartProvider
+import '../styles/globals.css';
 
-function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: any) {
+  return (
+    <CartProvider>
+      <Component {...pageProps} />
+    </CartProvider>
+  );
 }
 
-export default (App);
+export default MyApp;
