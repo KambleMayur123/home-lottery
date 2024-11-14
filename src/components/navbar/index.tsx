@@ -51,15 +51,17 @@ const Component: React.FC = () => {
               <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
               <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
               <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Claim Prize Money</Link>
-              <Link href="/cart" className="relative px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
+
+              {/* <Link href="/cart" className="relative px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">
                 <FaCartShopping className="text-2xl" />
                 {cartCount > 0 && (
                   <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
-              </Link>
+              </Link> */}
 
               <div id="google_translate_element"></div>
             </div>

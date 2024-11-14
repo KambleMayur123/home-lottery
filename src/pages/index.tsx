@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-black opacity-30"></div>
 
           <div className="relative z-10 top-[40%] flex flex-col justify-center items-center">
-            <h1 className="text-4xl md:text-5xl lg:text-8xl font-bold">Welcome to Lucky Draw</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold">Welcome to Lucky Dream Home</h1>
             <p className="mt-4 text-lg md:text-xl">
               Your chance to win big and change your life! Participate in our exclusive lottery for amazing prizes.
             </p>

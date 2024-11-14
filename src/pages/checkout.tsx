@@ -10,6 +10,8 @@ const CheckoutPage: React.FC = () => {
                 {/* Additional checkout form or details can be added here */}
             </div>
         </main>
+
+        
         <Footer />
     </>
 

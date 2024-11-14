@@ -5,18 +5,27 @@ import Link from "next/link";
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Button from '@/components/ui/button';
-import { FaCartShopping } from "react-icons/fa6";
 import { useCart } from '@/contxt';
 import { useRouter } from 'next/router';
+import UserForm from '@/components/UserForm';
 
 const BuyTicket: React.FC = () => {
-  const router = useRouter(); // Initialize useRouter for navigation
-  const { cartCount, setCartCount } = useCart(); // Access and set the cart count
-
-  const handleAddToCart = () => {
-    setCartCount(cartCount + 1); // Increase cart count by 1
-    router.push('/cart'); // Redirect to the cart page
+  const getCurrentDate = () => {
+    const date = new Date();
+    const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }); // Get the full day name
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+    const year = date.getFullYear();
+    return `${dayOfWeek}, ${day}/${month}/${year}`;
   };
+
+  // const router = useRouter(); // Initialize useRouter for navigation
+  // const { cartCount, setCartCount } = useCart(); // Access and set the cart count
+
+  // const handleAddToCart = () => {
+  //   setCartCount(cartCount + 1); // Increase cart count by 1
+  //   router.push('/cart'); // Redirect to the cart page
+  // };
 
   return (<>
     <Navbar />
@@ -25,7 +34,7 @@ const BuyTicket: React.FC = () => {
 
       <div>
         <div className='mt-11 p-8 text-center'>
-          <h2 className='text-[2.5rem] font-bold'>WIN This Dream Home Prize Packge!</h2>
+          <h2 className='text-[2.5rem] font-bold'>WIN This Dream Home Lottery</h2>
           <div className="mt-[10px] mb-[10px]">
             <p className="mb-[7px]">Display lottery Lottery No. Here </p>
             <span>Winner Drawn:
@@ -40,28 +49,33 @@ const BuyTicket: React.FC = () => {
               MOST POPULAR
             </div>
             <div>
-              <h2 className='text-2xl font-semibold mb-1'>Dream Home </h2>
+            <Image src={Logo} alt="logo" className='h-auto w-[65%]'  />
+
+              {/* <h2 className='text-2xl font-semibold mb-1'>Dream Home </h2> */}
               <p className='text-gray-600'>
                 Grab Your Dream Home Ticket
               </p>
             </div>
-            <div>
-              <span className='text-gray-600'>&#8377; 3500 per ticket</span>
-            </div>
+            <div className='flex flex-col-reverse'>
+                  <span className="text-gray-600">Lottery No: 00000001</span>
+                  <span className="text-gray-500 text-sm mt-1">Date: {getCurrentDate()}</span>
+                </div>
             <div className='text-center'>
               <span className='mb-2 text-2xl font-semibold'>&#8377;3500</span>
               <Button
-                onClick={handleAddToCart}
+                // onClick={handleAddToCart}
                 className="flex items-center px-4 py-2 bg-[#ED702E] mt-4 text-white rounded hover:bg-[#f7b245] transition"
               >
-                <FaCartShopping className="mr-2" />
-                Add to Cart
+               Buy Now
               </Button>
             </div>
           </div>
         </div>
       </div>
+      <UserForm />
+
     </main>
+
     <Footer />
   </>
 
