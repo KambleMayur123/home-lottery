@@ -14,3 +14,4 @@ declare global {
   // Ensures the PrismaClient instance is globally typed
   var prisma: PrismaClient | undefined;
 }
+

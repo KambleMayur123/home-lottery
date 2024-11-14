@@ -36,7 +36,6 @@ const BuyTicket: React.FC = () => {
         <div className='mt-11 p-8 text-center'>
           <h2 className='text-[2.5rem] font-bold'>WIN This Dream Home Lottery</h2>
           <div className="mt-[10px] mb-[10px]">
-            <p className="mb-[7px]">Display lottery Lottery No. Here </p>
             <span>Winner Drawn:
               1st November 2025</span>
 
