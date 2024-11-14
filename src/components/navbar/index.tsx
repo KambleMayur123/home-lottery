@@ -37,13 +37,13 @@ const Component: React.FC = () => {
 
   return (
     <nav className="lg:pl-10 lg:pr-10 text-primary-foreground fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 border-b-slate-300 border-b">
-      <div className=" mx-auto pt-2 pb-2">
+      <div className="mx-auto pl-2 pr-2 pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
 
             <Link href="/" className="flex-shrink-0 w-[100%]">
 
-              <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[45%]' />
+              <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[90%]' />
             </Link>
           </div>
           <div className="hidden md:block w-full">
@@ -90,12 +90,15 @@ const Component: React.FC = () => {
         className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${isMenuOpen ? 'max-h-60' : 'max-h-0'
           }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link href="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
-          <Link href="/ticket" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
-          <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
-          <Link href="#" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Claim Prize Money</Link>
-          <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap "><FaCartShopping /></Link>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col lg:flex-row">
+        <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
+              <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
+              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
+              <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
+
+          
+
         </div>
       </div>
     </nav>

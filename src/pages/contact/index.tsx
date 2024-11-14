@@ -50,8 +50,8 @@ const ContactForm: React.FC = () => {
 
     return (<>
         <Navbar />
-        <main className='bg-[#f1f5fa] mt-11 mb-11 p-24'>
-            <h2 className="font-semibold pb-5 text-4xl">Send us an email</h2>
+        <main className='bg-[#f1f5fa] lg:mt-11 mt-[80px] mb-11 lg:p-24 p-3'>
+            <h2 className="font-semibold pb-5 lg:text-4xl text-[22px]">Send us an email</h2>
 
             <div className="flex flex-col md:flex-row bg-white shadow-md">
                 <div className="md:w-1/2 p-8 md:p-16 bg-gray-200">

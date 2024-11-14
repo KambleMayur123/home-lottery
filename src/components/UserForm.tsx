@@ -34,13 +34,13 @@ const UserForm = () => {
     };
 
     return (<>
-        <div className="mt-8 p-8">
+        <div className="mt-8 lg:p-8">
 
-            <div className='p-8 text-center'>
-                <h2 className="text-[2.5rem] font-bold">Welcome to Lucky Dream Home!</h2>
+            <div className='lg:p-8 pt-8 pb-8 text-center'>
+                <h2 className="lg:text-[2.5rem] text-[22px] mb-2 font-bold">Welcome to Lucky Dream Home!</h2>
                 <span>Fill in the form with your details to receive updates and offers. </span>
             </div>
-            <form onSubmit={handleSubmit} className="max-w-[50%] mx-auto p-8 bg-white rounded-lg shadow-md">
+            <form onSubmit={handleSubmit} className="lg:max-w-[50%] w-full mx-auto lg:p-8 p-4 bg-white rounded-lg shadow-md">
                 <div className="mb-4">
                     <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
                         Name:
@@ -55,8 +55,8 @@ const UserForm = () => {
                     />
                 </div>
 
-                <div className="mb-4 flex space-x-4">
-                    <div className="w-1/2">
+                <div className="mb-4 lg:flex space-x-4">
+                    <div className="lg:w-1/2">
                         <label className="block text-gray-700 font-semibold mb-2" htmlFor="dob">
                             Date of Birth:
                         </label>
@@ -70,7 +70,7 @@ const UserForm = () => {
                         />
                     </div>
 
-                    <div className="w-1/2">
+                    <div className="lg:w-1/2 !m-0 lg:!ml-2">
                         <label className="block text-gray-700 font-semibold mb-2" htmlFor="mobile">
                             Mobile:
                         </label>

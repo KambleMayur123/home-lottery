@@ -25,14 +25,14 @@ const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-black opacity-30"></div>
 
           <div className="relative z-10 top-[40%] flex flex-col justify-center items-center">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold">Welcome to Lucky Dream Home</h1>
-            <p className="mt-4 text-lg md:text-xl">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold">Welcome to Lucky Dream Home</h1>
+            <p className="mt-4 text-lg md:text-base">
               Your chance to win big and change your life! Participate in our exclusive lottery for amazing prizes.
             </p>
 
 
 
-            <Button className='mt-4 bg-[#f7b245] lg:w-[20%] w-[auto] hover:bg-[#e08b01]'>
+            <Button className='mt-4 bg-[#f7b245] lg:w-[20%] w-max hover:bg-[#e08b01]'>
               <Link href="/ticket" className='flex justify-center items-center'>
                 Get Your Ticket Now <FiArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -101,12 +101,12 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-[#2cb7f0] text-white py-12 text-center">
+        <section className="bg-[#2cb7f0] text-white p-5 text-center">
           <h2 className="text-3xl font-bold">Ready to Try Your Luck?</h2>
           <p className="mt-4 text-lg">Sign up today and secure your chance to win amazing prizes.</p>
-          <button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f]  flex items-center mx-auto">
-            Sign Up &#38; Get Started <FiArrowRight className="ml-2 h-5 w-5" />
-          </button>
+          {/* <Button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto w-max">
+           Get Your Lottery Now <FiArrowRight className="ml-2 h-5 w-5" />
+          </Button> */}
         </section>
       </div>
     </Layout>
