@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen mt-[80px] flex flex-col">
         <section className="relative text-white py-16 text-center lg:h-screen">
           <Image
             src={Heroimg}
