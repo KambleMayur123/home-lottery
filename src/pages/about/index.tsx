@@ -11,11 +11,11 @@ const AboutPage: React.FC = () => {
 
     return (<>
         <Navbar />
-        <main className='bg-[#f1f5fa] lg:mt-11 mt-16 mb-11 lg:p-6'>
+        <main className='bg-[#f1f5fa] lg:mt-[4.75rem] mt-16 mb-11 lg:p-6'>
             <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:ml-20 lg:mr-20">
                     {/* First Column */}
-                    <div className=" flex-col justify-center">
+                    <div className=" flex flex-col justify-center">
                         <h2 className="lg:text-4xl text-xl font-semibold mb-4">Transforming Lives Through Exceptional Homes</h2>
                         <p className="text-gray-600 font-bold mt-9">
                             Providing housing facilities
@@ -41,7 +41,7 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:ml-20 lg:mr-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12  lg:ml-20 lg:mr-20">
                     {/*First  Column */}
                     <div className="flex justify-center items-center">
                         <Image
@@ -51,7 +51,7 @@ const AboutPage: React.FC = () => {
                         />
                     </div>
                     {/* Second Column */}
-                    <div className=" flex-col justify-center">
+                    <div className="flex flex-col justify-center">
                         <h2 className="lg:text-4xl text-xl font-semibold mb-4"> CSR LDH adheres to social responsibility & will benefit society</h2>
                         <Accordion />
 
@@ -63,22 +63,23 @@ const AboutPage: React.FC = () => {
 
 
             <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:ml-20 lg:mr-20">
-                    {/* First Column */}
-                    <div className="flex justify-center items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:mt-12 lg:ml-20 lg:mr-20">
+                   
+                    {/*  First Column */}
+                    <div className="flex flex-col justify-center">
+                        <h2 className="lg:text-4xl text-xl mb-3 font-semibold ">How the CSR Lucky Dream Home works</h2>
+                        <div>
+                            <p>Enactment of Companies Act, 2013 by the Ministry of Corporate Affairs, Government of India was one of the world's largest experiments of introducing the CSR as a mandatory provision by imposing statutory obligation on Companies to take up CSR projects towards social welfare activities. This has made India the only country which has regulated and mandated CSR for some select categories of companies registered under the Act. This CSR Initiative will push the nation towards achievement of sustainable development goals and public-private partnership in transforming India.</p>
+
+                        </div>
+                    </div>
+                     {/* second Column */}
+                     <div className="flex justify-center items-center">
                         <Image
                             src={Coch}
                             alt="CItyimage"
                             className="rounded-lg shadow-md"
                         />
-                    </div>
-                    {/*  Second Column */}
-                    <div className=" flex-col justify-center">
-                        <h2 className="text-4xl font-semibold mb-4">How the CSR Lucky Dream Home works</h2>
-                        <div>
-                            <p>Enactment of Companies Act, 2013 by the Ministry of Corporate Affairs, Government of India was one of the world's largest experiments of introducing the CSR as a mandatory provision by imposing statutory obligation on Companies to take up CSR projects towards social welfare activities. This has made India the only country which has regulated and mandated CSR for some select categories of companies registered under the Act. This CSR Initiative will push the nation towards achievement of sustainable development goals and public-private partnership in transforming India.</p>
-
-                        </div>
                     </div>
 
                 </div>

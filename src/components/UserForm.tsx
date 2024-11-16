@@ -1,8 +1,12 @@
-// components/UserForm.tsx
 import { useState } from 'react';
 import Button from './ui/button';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+interface UserFormProps {
+    onFormSubmit: () => void;  // Accepting the callback as a prop
+}
 
-const UserForm = () => {
+const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
     const [formData, setFormData] = useState({
         name: '',
         dob: '',
@@ -28,13 +32,15 @@ const UserForm = () => {
         const result = await response.json();
         if (response.ok) {
             alert(result.message);
+            onFormSubmit();  // Trigger the callback to indicate form submission
         } else {
             alert(result.message || 'Failed to save user');
         }
     };
 
+
     return (<>
-        <div className="mt-8 lg:p-8">
+        <div className="lg:mt-0 mt-8 lg:p-8">
 
             <div className='lg:p-8 pt-8 pb-8 text-center'>
                 <h2 className="lg:text-[2.5rem] text-[22px] mb-2 font-bold">Welcome to Lucky Dream Home!</h2>
@@ -109,7 +115,7 @@ const UserForm = () => {
                     Submit
                 </Button>
             </form>
-
+            <ToastContainer />
         </div>
     </>
     );

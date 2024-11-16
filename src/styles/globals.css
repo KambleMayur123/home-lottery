@@ -43,6 +43,10 @@ a.VIpgJd-ZVi9od-l4eHX-hSRGPd{
 }
 
 select.goog-te-combo{
-  font-size: 15px;
   border: 2px solid lightgray;
+  padding: 10px;
+  background: #000000;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
 }
