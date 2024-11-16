@@ -1,18 +1,19 @@
 import Layout from '../layout/index';
 import Image from 'next/image';
 import Heroimg from '../../public/assets/hero.jpg'
-import { FiArrowRight, FiDollarSign } from "react-icons/fi";
-import { PiGiftLight, PiCarLight } from "react-icons/pi";
-import { RxHome } from "react-icons/rx";
+import { FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
-import Button from '../components/ui/button/index'
+import Button from '../components/ui/button/index';
+import CeoMessage from '../pages/ceomassege/index';
+import HowItWorks from './how-it-works';
+import PriceSection from './price-secton';
 
 const HomePage: React.FC = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="min-h-screen mt-[80px] flex flex-col">
-        <section className="relative text-white py-16 text-center lg:h-screen">
+      <div className="min-h-screen mt-[80px] flex flex-col lg:p-0">
+        <section className="relative text-white lg:py-0 py-16 text-center lg:h-screen">
           <Image
             src={Heroimg}
             width={1200}
@@ -20,94 +21,34 @@ const HomePage: React.FC = () => {
             alt="Lucky Draw Hero"
             className="absolute inset-0 w-full h-full object-cover"
           />
-
           {/* Black overlay with 30% opacity */}
           <div className="absolute inset-0 bg-black opacity-30"></div>
-
-          <div className="relative z-10 top-[40%] flex flex-col justify-center items-center">
+          <div className="relative z-10 lg:top-[28%] top-[40%] flex flex-col justify-center items-center">
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold">Welcome to Lucky Dream Home</h1>
             <p className="mt-4 text-lg md:text-base">
               Your chance to win big and change your life! Participate in our exclusive lottery for amazing prizes.
             </p>
-
-
-
             <Button className='mt-4 bg-[#f7b245] lg:w-[20%] w-max hover:bg-[#e08b01]'>
               <Link href="/ticket" className='flex justify-center items-center'>
                 Get Your Ticket Now <FiArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-
-
           </div>
         </section>
-
-
-        {/* How It Works Section */}
-        <section className="bg-[#f1f5fa] container mx-auto py-12 text-center">
-          <h2 className="lg:text-5xl text-3xl font-bold">How It Works</h2>
-          <p className="mt-4 text-lg text-gray-700">
-            Follow these simple steps to participate in our lottery.
-          </p>
-          <div className="flex flex-col md:flex-row justify-center items-center md:justify-around mt-8 gap-9">
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-[0_2px_16px_#19283917] p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <PiGiftLight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Step 1</h3>
-              <p className="mt-2">Choose your lucky numbers or opt for a quick pick.</p>
-            </div>
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-[0_2px_16px_#19283917] p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <FiArrowRight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Step 2</h3>
-              <p className="mt-2">Purchase your lottery ticket online securely.</p>
-            </div>
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-[0_2px_16px_#19283917] p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <PiGiftLight className="mx-auto h-12 w-12 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Step 3</h3>
-              <p className="mt-2">Wait for the draw and check if you&apos;re a winner&#x21;</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Prizes Section */}
-        <section className="bg-[white] py-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-center">Prizes You Could Win</h2>
-          <p className="text-center text-lg mt-4 text-gray-600">Check out our exclusive prizes&#x21;</p>
-          <div className="container mx-auto flex flex-col md:flex-row justify-center items-center md:justify-around mt-8 gap-9">
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-2xl p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <RxHome className="mx-auto h-16 w-16 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Dream Home</h3>
-              <p className="mt-2">A beautiful house in a location of your choice.</p>
-            </div>
-
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-2xl p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <PiCarLight className="mx-auto h-16 w-16 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Luxury Car</h3>
-              <p className="mt-2">Drive away in a brand new luxury vehicle.</p>
-            </div>
-
-
-            <div className="bg-[white] max-w-xs rounded-lg text-center shadow-2xl p-9 h-[300px] w-[100%] flex flex-col items-center justify-center ">
-              <FiDollarSign className="mx-auto h-16 w-16 text-[#2cb7f0]" />
-              <h3 className="text-2xl font-semibold mt-4">Cash Prizes</h3>
-              <p className="mt-2">Win life&#8208;changing amounts of money.</p>
-
-            </div>
-          </div>
-        </section>
-
+        <HowItWorks />
+        <PriceSection />
         {/* Call to Action Section */}
         <section className="bg-[#2cb7f0] text-white p-5 text-center">
           <h2 className="text-3xl font-bold">Ready to Try Your Luck?</h2>
           <p className="mt-4 text-lg">Sign up today and secure your chance to win amazing prizes.</p>
-          {/* <Button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto w-max">
-           Get Your Lottery Now <FiArrowRight className="ml-2 h-5 w-5" />
-          </Button> */}
+          <Button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto w-max">
+            <Link href="/ticket" className='flex justify-center items-center'>
+              Get Your Lottery Now <FiArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+
+          </Button>
         </section>
+        <CeoMessage />
       </div>
     </Layout>
   );

@@ -19,20 +19,25 @@ const Component: React.FC = () => {
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
-        pageLanguage: "en",
-        autoDisplay: false
+        pageLanguage: "en", // Set the default language as English
+        includedLanguages: "en,hi", // Specify only English (en) and Hindi (hi)
+        autoDisplay: false,
       },
       "google_translate_element"
     );
   };
+  
   useEffect(() => {
-    const addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
+    // Check if the script is already added
+    if (!document.querySelector('script[src="//translate.google.com/translate_a/element.js"]')) {
+      const addScript = document.createElement("script");
+      addScript.setAttribute(
+        "src",
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      );
+      document.body.appendChild(addScript);
+      window.googleTranslateElementInit = googleTranslateElementInit;
+    }
   }, []);
 
   return (
@@ -51,7 +56,7 @@ const Component: React.FC = () => {
               <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
               <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
               <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
+              <Link href="/about" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
               <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
 
               {/* <Link href="/cart" className="relative px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">
@@ -94,7 +99,7 @@ const Component: React.FC = () => {
         <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
               <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
               <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
+              <Link href="/abou" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
               <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
 
           

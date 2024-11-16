@@ -1,10 +1,10 @@
-import Footer from '@/components/footer'
-import Navbar from '@/components/navbar'
-import { Building2, Mail, Phone } from 'lucide-react'
-import { useState } from 'react'
-import Button from '../../components/ui/button'
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
+import { Building2, Mail, Phone } from 'lucide-react';
+import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-
+import Contact from '../../../public/assets/contact.jpg';
+import Image from 'next/image';
 const ContactForm: React.FC = () => {
 
     const [formData, setFormData] = useState({
@@ -50,7 +50,12 @@ const ContactForm: React.FC = () => {
 
     return (<>
         <Navbar />
-        <main className='bg-[#f1f5fa] lg:mt-11 mt-[80px] mb-11 lg:p-24 p-3'>
+        <div className='relative lg:mt-0 mt-[80px] flex justify-center items-center'>
+            <h2 className='lg:text-4xl font-bold text-white absolute'>Contact to Lucky Dream Home</h2>
+            <Image src={Contact} alt="Contact Us" className='w-full'/>
+        </div>
+        <main className='bg-[#f1f5fa] mb-11 lg:p-24 p-3'>
+     
             <h2 className="font-semibold pb-5 lg:text-4xl text-[22px]">Send us an email</h2>
 
             <div className="flex flex-col md:flex-row bg-white shadow-md">
@@ -63,17 +68,26 @@ const ContactForm: React.FC = () => {
                         <div className="flex items-center space-x-4">
                             <Building2 className="text-gray-400" />
                             <div>
-                                <p>545 Mavis Island</p>
-                                <p>Chicago, IL 99191</p>
+                                <span className='font-bold'>Bulding Address: </span>
+                                <p>2, Floor-GRD, Plot -336,Kazi Compound, Balashet Madurkar Marg, Elphistone RLY STN (W), Delisle Road Mumbai-400013</p>
                             </div>
                         </div>
                         <div className="flex items-center space-x-4">
                             <Phone className="text-gray-400" />
-                            <p>+1 (555) 234-5678</p>
+                            <a
+                                href="tel:9076469351"
+                                className="relative inline-block border-b-2 border-transparent hover:border-primary transition duration-300"
+                            >
+                                9076469351
+                            </a>
                         </div>
                         <div className="flex items-center space-x-4">
                             <Mail className="text-gray-400" />
-                            <p>hello@example.com</p>
+                            <a
+                                href="mailto:luckydreamh@gmail.com">
+                                luckydreamh@gmail.com
+                            </a>
+
                         </div>
                     </div>
                 </div>
