@@ -1,4 +1,3 @@
-// pages/api/saveUser.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../lib/prisma';
 
@@ -12,6 +11,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Validate fields
     if (!name || !dob || !mobile || !address) {
       return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    // Validate mobile number format
+    const mobileRegex = /^[0-9]{10}$/; // Regular expression for 10-digit numbers
+    if (!mobileRegex.test(mobile)) {
+      return res.status(400).json({ message: 'Mobile number must be exactly 10 digits' });
     }
 
     // Convert dob to a Date object and validate it
