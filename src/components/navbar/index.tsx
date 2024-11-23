@@ -48,14 +48,14 @@ const Component: React.FC = () => {
 
             <Link href="/" className="flex-shrink-0 w-[100%]">
 
-              <Image src={Logo} alt="Logo" className='h-auto lg:w-[65%] w-[90%]' />
+              <Image src={Logo} alt="Logo" className='h-auto lg:w-[45%] w-[90%]' />
             </Link>
           </div>
           <div className="hidden md:block w-full">
             <div className="ml-10 flex items-center justify-end space-x-4">
               <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
               <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
+              <Link href="/lotteryResult" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
               <Link href="/about" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
               <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
 
