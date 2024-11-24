@@ -9,8 +9,8 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   name      String
-  dob       DateTime  // Make sure dob is defined here
-  mobile    String   @unique
+  dob       DateTime
+  mobile    String
   address   String
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) // Ensure this exists in your model
 }
