@@ -19,7 +19,7 @@ const AboutPage: React.FC = () => {
                         <h2 className="lg:text-4xl text-xl font-semibold mb-4">Transforming Lives Through Exceptional Homes</h2>
                         <p className="text-gray-600 font-bold mt-9">
                             Providing housing facilities
-                            If the scheme involves building houses for economically weaker sections, it will be included in CSR activities. Companies can provide shelter to their problems by building cost-effective people and population housing schemes.
+                            If the scheme involves building houses for economically weaker sections, it will be included in CSR activities. Companies can provide shelter to their problems by building cost&#x2010;effective people and population housing schemes.
                         </p>
                         <p className="mt-4">We have started this project through Lucky Dream Home with the aim of providing homes to the poor and underprivileged in society. This project has been initiated to contribute to the development of society and to help those in need.</p>
                         <div className="mt-6">
@@ -69,7 +69,7 @@ const AboutPage: React.FC = () => {
                     <div className="flex flex-col justify-center">
                         <h2 className="lg:text-4xl text-xl mb-3 font-semibold ">How the CSR Lucky Dream Home works</h2>
                         <div>
-                            <p>Enactment of Companies Act, 2013 by the Ministry of Corporate Affairs, Government of India was one of the world's largest experiments of introducing the CSR as a mandatory provision by imposing statutory obligation on Companies to take up CSR projects towards social welfare activities. This has made India the only country which has regulated and mandated CSR for some select categories of companies registered under the Act. This CSR Initiative will push the nation towards achievement of sustainable development goals and public-private partnership in transforming India.</p>
+                            <p>Enactment of Companies Act, 2013 by the Ministry of Corporate Affairs, Government of India was one of the world&apos;s largest experiments of introducing the CSR as a mandatory provision by imposing statutory obligation on Companies to take up CSR projects towards social welfare activities. This has made India the only country which has regulated and mandated CSR for some select categories of companies registered under the Act. This CSR Initiative will push the nation towards achievement of sustainable development goals and public&#x2010;private partnership in transforming India.</p>
 
                         </div>
                     </div>

@@ -16,7 +16,7 @@ const ContactForm: React.FC = () => {
     });
 
     const [error, setError] = useState('');
-    const [isSuccess, setIsSuccess] = useState(false); // Track if the message was sent successfully
+    const [, setIsSuccess] = useState(false); // Track if the message was sent successfully
 
     const handleChange = (e: { target: { name: any; value: any } }) => {
         const { name, value } = e.target;

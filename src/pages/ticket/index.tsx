@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Logo from '../../../public/assets/logo.png';
-import Link from "next/link";
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Button from '@/components/ui/button';
-import { useCart } from '@/contxt';
-import { useRouter } from 'next/router';
 import UserForm from '@/components/UserForm';
 
 const BuyTicket: React.FC = () => {

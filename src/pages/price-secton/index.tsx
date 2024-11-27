@@ -14,7 +14,7 @@ const PriceSection: React.FC = () => {
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2">Bungalow</div>
                         <p className="text-gray-700 text-base">
-                            Live the luxury life in a spacious, modern bungalow. Designed with elegance and perfect for your dream home."
+                            Live the luxury life in a spacious, modern bungalow. Designed with elegance and perfect for your dream home.
                         </p>
                     </div>
                 </div>

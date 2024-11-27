@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { ChevronRight } from 'lucide-react'
 import Ceo from '../../../public/assets/ceo.jpeg'
 const CeoMessage: React.FC = () => {
 
@@ -14,10 +13,10 @@ const CeoMessage: React.FC = () => {
                         <div className="relative pl-6 border-l-4 border-primary">
                             <blockquote className="text-lg md:text-xl text-muted-foreground">
                                 <p className="mb-4">
-                                    "We at Lucky Dream Home are committed to providing homes to the underprivileged, fostering societal development, and helping those in need achieve their dream of owning a home."
+                                &quot;We at Lucky Dream Home are committed to providing homes to the underprivileged, fostering societal development, and helping those in need achieve their dream of owning a home.&quot;
                                 </p>
                                 <p>
-                                    "every family deserves a roof over their head. Lucky Dream Home is making it happen for those in need."
+                                &quot;every family deserves a roof over their head. Lucky Dream Home is making it happen for those in need.&quot;
                                 </p>
                             </blockquote>
                         </div>

@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
         <HowItWorks />
         <PriceSection />
         {/* Call to Action Section */}
-        <section className="bg-[#2cb7f0] text-white p-5 text-center">
+        <section className="bg-[#2cb7f0] text-white p-10 text-center">
           <h2 className="text-3xl font-bold">Ready to Try Your Luck?</h2>
           <p className="mt-4 text-lg">Sign up today and secure your chance to win amazing prizes.</p>
           <Button className="mt-8 bg-[#f7b245] text-black px-6 py-2 rounded font-semibold hover:bg-[#fbc56f] flex items-center mx-auto w-max">

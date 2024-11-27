@@ -1,6 +1,6 @@
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
-import { FaShoppingCart, FaRegTrashAlt  } from "react-icons/fa";
+import { FaShoppingCart, FaRegTrashAlt } from "react-icons/fa";
 import { useCart } from '../contxt/index';
 import Image from 'next/image';
 import Logo from '../../public/assets/logo.png';
@@ -17,7 +17,7 @@ const getCurrentDate = () => {
   return `${dayOfWeek}, ${day}/${month}/${year}`;
 };
 const CartPage: React.FC = () => {
-  const { cartCount, addToCart, removeFromCart } = useCart(); // Using the context hook
+  const { cartCount, removeFromCart } = useCart(); // Using the context hook
   const router = useRouter();
 
   const handleCheckout = () => {
@@ -38,12 +38,12 @@ const CartPage: React.FC = () => {
           {cartCount > 0 ? (
             <div className="flex justify-center">
               <div className="bg-white shadow-md flex gap-28 justify-center items-center p-8 w-max rounded-xl relative">
-              <Image src={Logo} alt="logo" className='h-auto w-[18%]'  />
+                <Image src={Logo} alt="logo" className='h-auto w-[18%]' />
                 <div className='flex flex-col-reverse'>
                   <span className="text-gray-600">Lottery No: 00000001</span>
                   <span className="text-gray-500 text-sm mt-1">Date: {getCurrentDate()}</span>
                 </div>
-         
+
                 <div className="text-center">
                   <span className="mb-2 text-2xl font-semibold">&#8377;3500</span>
                   <Button

@@ -2,12 +2,9 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Logo from '../../../public/assets/logo.png';
 import Link from "next/link";
-import { FaCartShopping } from "react-icons/fa6";
-import { useCart } from '../../contxt/index'; // Import the custom CartContext hook
 
 
 const Component: React.FC = () => {
-  const { cartCount } = useCart(); // Access cart count from context
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -42,13 +39,13 @@ const Component: React.FC = () => {
 
   return (
     <nav className="lg:pl-10 lg:pr-10 text-primary-foreground fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 border-b-slate-300 border-b">
-      <div className="mx-auto pl-2 pr-2 pt-2 pb-2">
+      <div className="mx-auto pl-8 pr-8 pt-2 pb-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
 
             <Link href="/" className="flex-shrink-0 w-[100%]">
 
-              <Image src={Logo} alt="Logo" className='h-auto lg:w-[45%] w-[90%]' />
+              <Image src={Logo} alt="Logo" className='h-auto lg:w-[45%] w-[55%]' />
             </Link>
           </div>
           <div className="hidden md:block w-full">

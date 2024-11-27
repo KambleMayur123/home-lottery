@@ -1,4 +1,4 @@
-import { useState } from 'react';
+  import { useState } from 'react';
 import Button from './ui/button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -143,7 +143,7 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
           </div>
 
           <div className="mb-4">
-            <span>We'll contact you on this number when you win.</span>
+            <span>We&apos;ll contact you on this number when you win.</span>
           </div>
 
           <Button
