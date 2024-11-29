@@ -1,7 +1,8 @@
-  import { useState } from 'react';
+import { useState } from 'react';
 import Button from './ui/button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from '../components/ui/spinner/index'; // Import the Spinner component
 
 interface UserFormProps {
   onFormSubmit: () => void; // Accepting the callback as a prop
@@ -21,6 +22,8 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
     mobile: '',
     address: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false); // Manage the loading state
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -55,6 +58,8 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
       return;
     }
 
+    setIsSubmitting(true); // Start the loading state
+
     const response = await fetch('/api/saveUser', {
       method: 'POST',
       headers: {
@@ -64,6 +69,8 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
     });
 
     const result = await response.json();
+    setIsSubmitting(false); // Stop the loading state after request is finished
+
     if (response.ok) {
       alert(result.message);
       onFormSubmit(); // Trigger the callback to indicate form submission
@@ -150,7 +157,11 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
             type="submit"
             className="w-full py-2 bg-[#ED702E] text-white font-semibold rounded-lg hover:bg-[#f7b245] focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Submit
+            {isSubmitting ? (
+              <Spinner size="sm" className="text-white mx-auto" />
+            ) : (
+              'Submit'
+            )}
           </Button>
         </form>
         <ToastContainer />

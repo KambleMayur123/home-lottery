@@ -5,5 +5,15 @@
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/global.d.ts"
+      ], // Specify the file where exceptions apply
+      "rules": {
+        "no-var": "off" // Allow 'var' in global.d.ts
+      }
+    }
+  ]
 }
