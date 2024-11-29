@@ -23,7 +23,7 @@ const Component: React.FC = () => {
       "google_translate_element"
     );
   };
-  
+
   useEffect(() => {
     // Check if the script is already added
     if (!document.querySelector('script[src="//translate.google.com/translate_a/element.js"]')) {
@@ -93,14 +93,12 @@ const Component: React.FC = () => {
           }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col lg:flex-row">
-        <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
-              <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
-              <Link href="#" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
-              <Link href="/abou" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
-              <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
-
-          
-
+          <Link href="/" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Home</Link>
+          <Link href="/ticket" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Buy Tickets</Link>
+          <Link href="/lotteryResult" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Lottery Result</Link>
+          <Link href="/about" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">About</Link>
+          <Link href="/contact" className="px-3 py-2 rounded-md text-[17px] font-medium hover:bg-primary-foreground hover:text-primary transition-colors duration-200 md:whitespace-nowrap">Conact</Link>
+          <div id="google_translate_element"></div>
         </div>
       </div>
     </nav>
