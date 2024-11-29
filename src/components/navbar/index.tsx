@@ -45,7 +45,7 @@ const Component: React.FC = () => {
 
             <Link href="/" className="flex-shrink-0 w-[100%]">
 
-              <Image src={Logo} alt="Logo" className='h-auto lg:w-[45%] w-[35%]' />
+              <Image src={Logo} alt="Logo" className='h-auto lg:w-[45%] w-[65%]' />
             </Link>
           </div>
           <div className="hidden md:block w-full">
