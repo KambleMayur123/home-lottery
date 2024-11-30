@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useState } from 'react';
 import Logo from '../../../public/assets/logo.png';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
@@ -7,7 +6,6 @@ import Button from '@/components/ui/button';
 import UserForm from '@/components/UserForm';
 
 const BuyTicket: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false); // State to track form submission
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -18,9 +16,6 @@ const BuyTicket: React.FC = () => {
     return `${dayOfWeek}, ${day}/${month}/${year}`;
   };
 
-  const handleFormSubmit = () => {
-    setFormSubmitted(true); // Set formSubmitted to true when form is successfully submitted
-  };
 
   // const router = useRouter(); // Initialize useRouter for navigation
   // const { cartCount, setCartCount } = useCart(); // Access and set the cart count
@@ -37,9 +32,8 @@ const BuyTicket: React.FC = () => {
 
       <div>
        
-        {formSubmitted ? (
           
-          <><div className='mt-11 p-8 text-center'>
+          <div className='mt-11 p-8 text-center'>
             <h2 className='lg:text-[2.5rem] text-[22px] font-bold'>WIN This Dream Home Lottery</h2>
             <div className="mt-[10px] mb-[10px]">
               <span>Winner Drawn:
@@ -73,11 +67,10 @@ const BuyTicket: React.FC = () => {
                   </Button>
                 </div>
               </div>
-            </div></>
-          ) : (
-            // Render the UserForm component if the form is not submitted yet
-            <UserForm onFormSubmit={handleFormSubmit} />
-          )}
+            </div>
+       
+            <UserForm  />
+        
         </div>
       </main>
 

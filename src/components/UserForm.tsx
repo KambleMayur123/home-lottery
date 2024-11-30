@@ -2,80 +2,41 @@ import { useState } from 'react';
 import Button from './ui/button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Spinner from '../components/ui/spinner/index'; // Import the Spinner component
 
-interface UserFormProps {
-  onFormSubmit: () => void; // Accepting the callback as a prop
-}
+const UserForm: React.FC = () => {
 
-const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    dob: '',
-    mobile: '',
-    address: '',
+    name: "",
+    dateOfBirth: "",
+    mobileNumber: "",
+    address: "",
   });
 
-  const [errors, setErrors] = useState({
-    name: '',
-    dob: '',
-    mobile: '',
-    address: '',
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false); // Manage the loading state
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: '' }); // Clear error for the field on change
   };
 
-  const validate = () => {
-    const newErrors: typeof errors = { name: '', dob: '', mobile: '', address: '' };
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required.';
-    }
-    if (!formData.dob) {
-      newErrors.dob = 'Date of Birth is required.';
-    }
-    const mobileRegex = /^[0-9]{10}$/;
-    if (!mobileRegex.test(formData.mobile)) {
-      newErrors.mobile = 'Mobile number must be exactly 10 digits.';
-    }
-    if (!formData.address.trim()) {
-      newErrors.address = 'Address is required.';
-    }
-
-    setErrors(newErrors);
-    return Object.values(newErrors).every((err) => err === '');
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    if (!validate()) {
-      return;
-    }
+    try {
+      const response = await fetch("//index.php", { // Adjust path to your index.php file
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(true); // Start the loading state
+      const result = await response.json(); // Parse JSON response from the server
 
-    const response = await fetch('/api/saveUser', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await response.json();
-    setIsSubmitting(false); // Stop the loading state after request is finished
-
-    if (response.ok) {
-      alert(result.message);
-      onFormSubmit(); // Trigger the callback to indicate form submission
-    } else {
-      alert(result.message || 'Failed to save user');
+      if (response.ok && result.success) {
+        alert("Form submitted successfully!");
+        setFormData({ name: "", dateOfBirth: "", mobileNumber: "", address: "" });
+      } else {
+        alert(result.error || "Failed to submit the form.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
@@ -89,8 +50,8 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
           <span>Fill in the form with your details to receive updates and offers. </span>
         </div>
         <form
-          onSubmit={handleSubmit}
           className="lg:max-w-[50%] w-full mx-auto lg:p-8 p-4 bg-white rounded-lg shadow-md"
+          onSubmit={handleSubmit}
         >
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
@@ -98,12 +59,13 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
             </label>
             <input
               type="text"
+              id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
 
           <div className="mb-4 lg:flex space-x-4">
@@ -113,12 +75,13 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
               </label>
               <input
                 type="date"
-                name="dob"
-                value={formData.dob}
+                id="dateOfBirth"
+                name="dateOfBirth"
+                value={formData.dateOfBirth}
                 onChange={handleChange}
+                required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              {errors.dob && <p className="text-red-500 text-sm mt-1">{errors.dob}</p>}
             </div>
 
             <div className="lg:w-1/2 !m-0 lg:!ml-2">
@@ -126,13 +89,14 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
                 Mobile:
               </label>
               <input
-                type="text"
-                name="mobile"
-                value={formData.mobile}
+                type="tel"
+                id="mobileNumber"
+                name="mobileNumber"
+                value={formData.mobileNumber}
                 onChange={handleChange}
+                required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              {errors.mobile && <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>}
             </div>
           </div>
 
@@ -141,12 +105,13 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
               Address:
             </label>
             <textarea
+              id="address"
               name="address"
               value={formData.address}
               onChange={handleChange}
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
           </div>
 
           <div className="mb-4">
@@ -157,11 +122,7 @@ const UserForm: React.FC<UserFormProps> = ({ onFormSubmit }) => {
             type="submit"
             className="w-full py-2 bg-[#ED702E] text-white font-semibold rounded-lg hover:bg-[#f7b245] focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            {isSubmitting ? (
-              <Spinner size="sm" className="text-white mx-auto" />
-            ) : (
-              'Submit'
-            )}
+            Submit
           </Button>
         </form>
         <ToastContainer />
