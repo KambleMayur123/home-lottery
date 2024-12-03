@@ -4,8 +4,10 @@ import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Button from '@/components/ui/button';
 import UserForm from '@/components/UserForm';
+import { useState } from 'react';
 
 const BuyTicket: React.FC = () => {
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Track form submission status
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -17,23 +19,15 @@ const BuyTicket: React.FC = () => {
   };
 
 
-  // const router = useRouter(); // Initialize useRouter for navigation
-  // const { cartCount, setCartCount } = useCart(); // Access and set the cart count
-
-  // const handleAddToCart = () => {
-  //   setCartCount(cartCount + 1); // Increase cart count by 1
-  //   router.push('/cart'); // Redirect to the cart page
-  // };
-
   return (<>
     <Navbar />
     <main className='bg-[#f1f5fa] mt-11 mb-11 p-6'>
 
-
       <div>
-       
-          
-          <div className='mt-11 p-8 text-center'>
+        {isFormSubmitted ? (
+
+
+          <><div className='mt-11 p-8 text-center'>
             <h2 className='lg:text-[2.5rem] text-[22px] font-bold'>WIN This Dream Home Lottery</h2>
             <div className="mt-[10px] mb-[10px]">
               <span>Winner Drawn:
@@ -41,9 +35,7 @@ const BuyTicket: React.FC = () => {
 
             </div>
 
-          </div>
-          
-            <div className='flex justify-center'>
+          </div><div className='flex justify-center'>
               <div className='bg-white w-[100%] shadow-md flex lg:gap-28 justify-center items-center lg:p-8 pr-3 pl-3 pt-3 pb-3 lg:w-max rounded-xl relative'>
                 <div className="bg-[#ED702E] absolute top-[-10px] text-white pl-[10px] pr-[10px] pt-[2px] pb-[2px] lg:text-[14px] text-[11px] rounded-[10px]">
                   MOST POPULAR
@@ -67,14 +59,16 @@ const BuyTicket: React.FC = () => {
                   </Button>
                 </div>
               </div>
-            </div>
-       
-            <UserForm  />
-        
-        </div>
-      </main>
+            </div></>
 
-      <Footer />
+        ) : (
+          <UserForm onSubmitSuccess={() => setIsFormSubmitted(true)} />
+        )}
+
+      </div>
+    </main>
+
+    <Footer />
   </>
 
   )

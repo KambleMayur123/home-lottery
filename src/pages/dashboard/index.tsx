@@ -9,7 +9,7 @@ const DashboardPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`//index.php?action=getRecords&page=${currentPage}`);
+                const response = await axios.get(`//localhost/index.php?action=getRecords&page=${currentPage}`);
                 setRecords(response.data.records);
                 setTotalPages(response.data.totalPages);
             } catch (err: any) {

@@ -16,7 +16,7 @@ const Login = () => {
         formData.append('password', password);
 
         try {
-            const response = await fetch('//login.php', {
+            const response = await fetch('//localhost/login.php', {
                 method: 'POST',
                 body: formData,
             });

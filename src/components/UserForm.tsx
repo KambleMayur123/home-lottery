@@ -2,8 +2,15 @@ import { useState } from 'react';
 import Button from './ui/button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from './ui/spinner';
 
-const UserForm: React.FC = () => {
+
+interface UserFormProps {
+  onSubmitSuccess: () => void; // Callback for successful submission
+}
+
+const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false); // Manage the loading state
 
   const [formData, setFormData] = useState({
     name: "",
@@ -18,9 +25,11 @@ const UserForm: React.FC = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
 
     try {
-      const response = await fetch("//index.php", { // Adjust path to your index.php file
+      const response = await fetch("//localhost/index.php", { // Adjust path to your index.php file
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -31,12 +40,16 @@ const UserForm: React.FC = () => {
       if (response.ok && result.success) {
         alert("Form submitted successfully!");
         setFormData({ name: "", dateOfBirth: "", mobileNumber: "", address: "" });
+        onSubmitSuccess(); // Notify parent of successful submission
+
       } else {
         alert(result.error || "Failed to submit the form.");
       }
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -82,6 +95,7 @@ const UserForm: React.FC = () => {
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+
             </div>
 
             <div className="lg:w-1/2 !m-0 lg:!ml-2">
@@ -122,7 +136,11 @@ const UserForm: React.FC = () => {
             type="submit"
             className="w-full py-2 bg-[#ED702E] text-white font-semibold rounded-lg hover:bg-[#f7b245] focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Submit
+            {isSubmitting ? (
+              <Spinner size="sm" className="text-white mx-auto" />
+            ) : (
+              'Submit'
+            )}
           </Button>
         </form>
         <ToastContainer />
