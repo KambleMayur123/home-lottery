@@ -65,7 +65,7 @@ const ContactForm: React.FC = () => {
             .then((response: { status: any; text: any }) => {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Message sent successfully!');
-                
+
                 // Reset form data after successful submission
                 setFormData({
                     firstName: '',
@@ -87,12 +87,9 @@ const ContactForm: React.FC = () => {
     return (
         <>
             <Navbar />
-            <div className='relative lg:mt-0 mt-[80px] flex justify-center items-center'>
-                <h2 className='lg:text-4xl font-bold text-white absolute'>Contact to Lucky Dream Home</h2>
-                <Image src={Contact} alt="Contact Us" className='w-full' />
-            </div>
+
             <main className='bg-[#f1f5fa] mb-11 lg:p-24 p-3'>
-                <h2 className="font-semibold pb-5 lg:text-4xl text-[22px]">Send us an email</h2>
+                <h2 className="font-semibold pb-5 lg:text-4xl text-[22px]">Contact to Lucky Dream Home</h2>
 
                 <div className="flex flex-col md:flex-row bg-white shadow-md">
                     <div className="md:w-1/2 p-8 md:p-16 bg-gray-200">
@@ -102,7 +99,7 @@ const ContactForm: React.FC = () => {
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center space-x-4">
-                                <Building2 className="text-gray-400" />
+                                <Building2 className="text-gray-400" size={45}/>
                                 <div>
                                     <span className='font-bold'>Building Address: </span>
                                     <p>2, Floor-GRD, Plot -336, Kazi Compound, Balashet Madurkar Marg, Elphistone RLY STN (W), Delisle Road Mumbai-400013</p>
@@ -123,6 +120,18 @@ const ContactForm: React.FC = () => {
                                     href="mailto:luckydreamh@gmail.com">
                                     luckydreamh@gmail.com
                                 </a>
+                            </div>
+                            <div className="mt-6">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3772.276909451308!2d72.83339197497558!3d19.007515882182982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s2%2C%20Floor-GRD%2C%20Plot%20-336%2C%20Kazi%20Compound%2C%20Balashet%20Madurkar%20Marg%2C%20Elphistone%20RLY%20STN%20(W)%2C%20Delisle%20Road%20Mumbai-400013!5e0!3m2!1sen!2sin!4v1733218392646!5m2!1sen!2sin"
+                                    width="100%"
+                                    className='shadow-md'
+                                    height="300"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
                             </div>
                         </div>
                     </div>
@@ -218,4 +227,3 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
-            
