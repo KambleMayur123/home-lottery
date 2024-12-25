@@ -3,8 +3,6 @@ import Navbar from '@/components/navbar';
 import { Building2, Mail, Phone } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import Contact from '../../../public/assets/contact.jpg';
-import Image from 'next/image';
 
 const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState({

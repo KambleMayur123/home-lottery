@@ -11,14 +11,14 @@ const DashboardPage = () => {
     const [error, setError] = useState<string | null>(null);
 
     const limit = 10; // Limit of records per page
-
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             setError(null);
 
             try {
-                const response = await axios.get(`http://localhost/index.php?action=getRecords&page=${currentPage}&limit=${limit}`);
+                const response = await axios.get(`${baseUrl}/index.php?action=getRecords&page=${currentPage}&limit=${limit}`);
                 setRecords(response.data.records);
                 setTotalPages(response.data.totalPages);
             } catch (err: any) {
@@ -33,9 +33,9 @@ const DashboardPage = () => {
     }, [currentPage]);
 
     // Debounce the search input for better performance
-    const debounce = (func: Function, delay: number) => {
+    const debounce = <T extends any[]>(func: (...args: T) => void, delay: number) => {
         let timeoutId: NodeJS.Timeout;
-        return (...args: any[]) => {
+        return (...args: T) => {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => func(...args), delay);
         };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from './ui/button';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './ui/spinner';
 
@@ -21,6 +21,7 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
     annualIncome: '',
     ownHouse: false,
   });
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,7 +43,7 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
     }
 
     try {
-      const response = await fetch("//localhost/index.php", { // Adjust path to your index.php file
+      const response = await fetch(`${baseUrl}/index.php`, { // Adjust path to your index.php file
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
