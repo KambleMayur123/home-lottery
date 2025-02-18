@@ -5,9 +5,10 @@ import Footer from '../../components/footer';
 import Button from '@/components/ui/button';
 import UserForm from '@/components/UserForm';
 import { useState } from 'react';
+import PaymentButton from '@/components/ui/PaymentButton';
 
 const BuyTicket: React.FC = () => {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Track form submission status
+  const [isFormSubmitted, setIsFormSubmitted] = useState(true); // Track form submission status
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -57,12 +58,14 @@ const BuyTicket: React.FC = () => {
                   >
                     Buy Now
                   </Button>
+                  <PaymentButton />
                 </div>
               </div>
             </div></>
 
         ) : (
-          <UserForm onSubmitSuccess={() => setIsFormSubmitted(true)} />
+          <><UserForm onSubmitSuccess={() => setIsFormSubmitted(true)} /></>
+          
         )}
 
       </div>

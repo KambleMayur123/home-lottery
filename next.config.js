@@ -3,7 +3,7 @@
  */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // output: 'export', // Comment this out or remove it
   images: {
     unoptimized: true, 
   },
