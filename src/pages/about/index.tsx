@@ -11,7 +11,9 @@ const AboutPage: React.FC = () => {
 
     return (<>
         <Navbar />
+
         <main className='bg-[#f1f5fa] lg:mt-[4.75rem] mt-16 mb-11 lg:p-6'>
+
             <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:ml-20 lg:mr-20">
                     {/* First Column */}
@@ -31,10 +33,10 @@ const AboutPage: React.FC = () => {
 
                     {/* Second Column */}
                     <div className="flex justify-center items-center">
-                        <Image
-                            src={Mumbaicity}
+                        <Image src={Mumbaicity}
                             alt="CItyimage"
                             className="rounded-lg shadow-md"
+                            priority
                         />
                     </div>
                 </div>
@@ -64,7 +66,7 @@ const AboutPage: React.FC = () => {
 
             <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:mt-12 lg:ml-20 lg:mr-20">
-                   
+
                     {/*  First Column */}
                     <div className="flex flex-col justify-center">
                         <h2 className="lg:text-4xl text-xl mb-3 font-semibold ">How the CSR Lucky Dream Home works</h2>
@@ -73,8 +75,8 @@ const AboutPage: React.FC = () => {
 
                         </div>
                     </div>
-                     {/* second Column */}
-                     <div className="flex justify-center items-center">
+                    {/* second Column */}
+                    <div className="flex justify-center items-center">
                         <Image
                             src={Coch}
                             alt="CItyimage"

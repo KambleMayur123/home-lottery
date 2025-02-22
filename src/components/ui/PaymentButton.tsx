@@ -1,6 +1,10 @@
 import React from 'react';
 
-const PaymentButton = () => {
+interface PaymentButtonProps {
+  className?: string;
+}
+
+const PaymentButton: React.FC<PaymentButtonProps> = ({ className }) => {
   const createOrder = async () => {
     try {
       const response = await fetch('/api/createOrder', {
@@ -46,7 +50,10 @@ const PaymentButton = () => {
   };
 
   return (
-    <button onClick={createOrder} className="px-4 py-2 bg-blue-500 text-white rounded">
+    <button 
+      onClick={createOrder} 
+      className={`${className} px-4 py-2 rounded`} // Use className prop and add default styles
+    >
       Buy Now
     </button>
   );

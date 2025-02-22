@@ -2,13 +2,12 @@ import Image from 'next/image';
 import Logo from '../../../public/assets/logo.png';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
-import Button from '@/components/ui/button';
 import UserForm from '@/components/UserForm';
 import { useState } from 'react';
 import PaymentButton from '@/components/ui/PaymentButton';
 
 const BuyTicket: React.FC = () => {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(true); // Track form submission status
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false  ); // Track form submission status
 
   const getCurrentDate = () => {
     const date = new Date();
@@ -42,7 +41,7 @@ const BuyTicket: React.FC = () => {
                   MOST POPULAR
                 </div>
                 <div>
-                  <Image src={Logo} alt="logo" className="hidden md:block h-auto w-[60%]" />
+                  <Image src={Logo} alt="logo" className="hidden md:block h-auto w-[45%]" />
                   <p className='text-gray-600 hidden md:block'>
                     Grab Your Dream Home Ticket
                   </p>
@@ -53,12 +52,8 @@ const BuyTicket: React.FC = () => {
                 </div>
                 <div className='lg:text-center text-end'>
                   <span className='mb-2 lg:text-2xl text-[18px] font-semibold'>&#8377;3500</span>
-                  <Button
-                    className="flex items-center text-sm w-max lg:px-8 lg:py-2 bg-[#ED702E] mt-4 text-white rounded hover:bg-[#f7b245] transition"
-                  >
-                    Buy Now
-                  </Button>
-                  <PaymentButton />
+                  <PaymentButton className="flex items-center text-sm w-max lg:px-8 lg:py-2 bg-[#ED702E] mt-4 text-white rounded hover:bg-[#f7b245] transition" />
+
                 </div>
               </div>
             </div></>
