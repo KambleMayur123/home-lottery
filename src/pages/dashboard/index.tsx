@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import GetWinnersButton from '@/components/ui/getwinners';
+import StartNewLotteryButton from '@/components/ui/resetlottery';
 
 const DashboardPage = () => {
     const [records, setRecords] = useState<any[]>([]);
@@ -32,6 +34,47 @@ const DashboardPage = () => {
         fetchData();
     }, [currentPage]);
 
+
+
+    const getWinners = () => {
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
+
+            try {
+                const response = await axios.get(`${baseUrl}/index.php?action=getRandomRecords`);
+                console.log(response);
+            } catch (err: any) {
+                console.error('Error fetching records:', err);
+                setError('Failed to load data. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    };
+    const startNewLottery = () => {
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
+
+            try {
+                const response = await axios.get(`${baseUrl}/index.php?action=resetDatabase`);
+                console.log(response);
+            } catch (err: any) {
+                console.error('Error fetching records:', err);
+                setError('Failed to load data. Please try again later.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    };
+
+
+
     // Debounce the search input for better performance
     const debounce = <T extends any[]>(func: (...args: T) => void, delay: number) => {
         let timeoutId: NodeJS.Timeout;
@@ -46,11 +89,18 @@ const DashboardPage = () => {
     }, 300);
 
     // Updated Filtering Logic
-    const filteredRecords = records.filter((record) =>
+    const filteredRecords = records?.filter((record) =>
         record.name.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
         record.mobile_number.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
         record.address.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
+
+    // const filteredRecords = (records || []).filter((record) =>
+    //     record.name?.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
+    //     record.mobile_number?.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
+    //     record.address?.toLowerCase().startsWith(searchTerm.toLowerCase())
+    // );
+
 
     const handleNextPage = () => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -74,7 +124,10 @@ const DashboardPage = () => {
                     className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
-
+            <div className='inline-block'>
+                <GetWinnersButton getWinners={getWinners} />
+                <StartNewLotteryButton startNewLottery={startNewLottery} />
+            </div>
             {/* Loading and Error States */}
             {loading ? (
                 <p className="text-center text-gray-500">Loading data...</p>
@@ -97,8 +150,8 @@ const DashboardPage = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredRecords.length > 0 ? (
-                                    filteredRecords.map((record) => (
+                                {filteredRecords?.length > 0 ? (
+                                    filteredRecords?.map((record) => (
                                         <tr key={record.id} className="border-b hover:bg-gray-100">
                                             <td className="px-4 py-2">{record.id}</td>
                                             <td className="px-4 py-2">{record.name}</td>

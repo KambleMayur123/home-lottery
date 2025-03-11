@@ -1,18 +1,51 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './ui/button';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from './ui/spinner';
-
+import Image from 'next/image';
+import Logo from '../../public/assets/logo.png';
+import PaymentButton from './ui/PaymentButton';
 
 interface UserFormProps {
   onSubmitSuccess: () => void; // Callback for successful submission
 }
 
+const getCurrentDate = () => {
+  const date = new Date();
+  const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }); // Get the full day name
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+  const year = date.getFullYear();
+  return `${dayOfWeek}, ${day}/${month}/${year}`;
+};
 const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
   const [error, setError] = useState(''); // Error state
 
   const [isSubmitting, setIsSubmitting] = useState(false); // Manage the loading state
+  const [ticket, setTicket] = useState(0); // Manage the loading state
+
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+  const [nextTicket, setNextTicket] = useState<number | null>(null);
+
+  // Fetch the next ticket number
+  const fetchNextTicketNumber = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/index.php?action=nextTicketNumber`);
+      const data = await response.json();
+      if (data.nextTicketNumber) {
+        setNextTicket(data.nextTicketNumber);
+      }
+    } catch (error) {
+      console.error("Error fetching ticket number:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNextTicketNumber();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     dateOfBirth: '',
@@ -20,8 +53,8 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
     address: '',
     annualIncome: '',
     ownHouse: false,
+    ticket: nextTicket as number | null,
   });
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -53,9 +86,10 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
 
       if (response.ok && result.success) {
         alert("Form submitted successfully!");
-        setFormData({ name: "", dateOfBirth: "", mobileNumber: "", address: "", annualIncome: "", ownHouse: false });
+       // setFormData({ name: "", dateOfBirth: "", mobileNumber: "", address: "", annualIncome: "", ownHouse: false});
         onSubmitSuccess(); // Notify parent of successful submission
-
+        setTicket(result.ticketNumber)
+        console.log(ticket)
       } else {
         alert(result.error || "Failed to submit the form.");
       }
@@ -66,6 +100,8 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
       setIsSubmitting(false);
     }
   };
+
+  //razerpay 
 
   return (
     <>
@@ -78,8 +114,28 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
         </div>
         <form
           className="lg:max-w-[50%] w-full mx-auto lg:p-8 p-4 bg-white rounded-lg shadow-md"
-          onSubmit={handleSubmit}
         >
+          <div className='flex justify-center'>
+            <div className='bg-white w-[100%] shadow-md flex lg:gap-28 justify-center items-center lg:p-8 pr-3 pl-3 pt-3 pb-3 lg:w-max rounded-xl relative'>
+              <div className="bg-[#ED702E] absolute top-[-10px] text-white pl-[10px] pr-[10px] pt-[2px] pb-[2px] lg:text-[14px] text-[11px] rounded-[10px]">
+                MOST POPULAR
+              </div>
+              <div>
+                <Image src={Logo} alt="logo" className="hidden md:block h-auto w-[45%]" />
+                <p className='text-gray-600 hidden md:block'>
+                  Grab Your Dream Home Ticket
+                </p>
+              </div>
+              <div className='lg:flex flex-col-reverse'>
+                <span className="text-gray-600 text-sm lg:text-base">Lottery No: {nextTicket}</span>
+                <span className="text-gray-500 w-max text-sm mt-1 lg:text-base lg:flex inline-block">Date: {getCurrentDate()}</span>
+              </div>
+              <div className='lg:text-center text-end'>
+                <span className='mb-2 lg:text-2xl text-[18px] font-semibold'>&#8377;3500</span>
+
+              </div>
+            </div>
+          </div>
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
               Name:
@@ -196,7 +252,7 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
             <span>We&apos;ll contact you on this number when you win.</span>
           </div>
 
-          <Button
+          {/* <Button
             type="submit"
             className="w-full py-2 bg-[#ED702E] text-white font-semibold rounded-lg hover:bg-[#f7b245] focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -205,7 +261,9 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmitSuccess }) => {
             ) : (
               'Submit'
             )}
-          </Button>
+          </Button> */}
+          <PaymentButton className="w-full py-2 bg-[#ED702E] text-white font-semibold rounded-lg hover:bg-[#f7b245] focus:outline-none focus:ring-2 focus:ring-blue-500" handleSubmit={handleSubmit} />
+
         </form>
         <ToastContainer />
       </div>
